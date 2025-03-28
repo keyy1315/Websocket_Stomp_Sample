@@ -1,0 +1,11 @@
+@startuml
+client1 -> server : subscribe /sub/topic1
+client2 -> server : subscribe /sub/topic1
+client3 -> server : subscribe /sub/topic2
+
+client1 -> server : send /pub/topic1 {"hello"}
+
+server -> server : Message /sub/topic1 {"hello"}
+
+server -> client2 : send message
+@enduml
